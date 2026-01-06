@@ -1,4 +1,8 @@
 <div>
+    <div class="navbar-header text-center mt-2 mb-4">
+        <h5>Apply Lamaran Kamu</h5>
+    </div>
+    
     <p>Semua data otomatis akan tersimpan. Pastikan semua data terisi ya...</p>
     <form wire:submit="store">
         <div class="form-group">
@@ -28,12 +32,12 @@
         </div>
         <div class="form-group">
             <label>RT</label>
-            <input class="form-control" type="text" wire:model="rt">
+            <input class="form-control" type="number" wire:model="rt">
             @error('rt') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>RW</label>
-            <input class="form-control" type="text" wire:model="rw">
+            <input class="form-control" type="number" wire:model="rw">
             @error('rw') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
@@ -81,4 +85,10 @@
             <button type="submit" class="btn btn-block btn-lg btn-primary text-uppercase fs-12 fw-600">APPLY</button>
         </div>
     </form>
+
+    <footer class="col-sm-12 text-center">
+        <hr>
+        <p>Sudah Apply Lamaran? <a href="/track-apply" class="text-primary m-l-5"><b>Lacak Lamaran Kamu!</b></a>
+        </p>
+    </footer>
 </div>

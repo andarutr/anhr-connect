@@ -33,6 +33,15 @@ class PostApply extends Component
         return view('livewire.candidate.post-apply');
     }
 
+    private function generateNoApply()
+    {
+        $today = now()->format('Ymd'); 
+        $count = Candidate::where('no_apply', 'LIKE', $today . '%')->count();
+        $increment = str_pad($count + 1, 4, '0', STR_PAD_LEFT);
+
+        return $today . $increment;
+    }
+
     public function store()
     {
         $validated = $this->validate([
@@ -45,19 +54,20 @@ class PostApply extends Component
             'rw' => 'required|string|max:10',
             'kelurahan' => 'required|string|max:255',
             'kecamatan' => 'required|string|max:255',
-            'no_ktp' => 'required|numeric|digits:16|unique:candidates,no_ktp',
-            'no_kk' => 'required|numeric|digits:16',
+            'no_ktp' => 'required|numeric|unique:candidates,no_ktp',
+            'no_kk' => 'required|numeric',
             'email' => 'required|email|max:255|unique:candidates,email',
             'cv_terbaru' => 'required|file|mimes:pdf,doc,docx|max:2048', 
             'skck_terbaru' => 'required|file|mimes:pdf,doc,docx|max:2048',
             'ket_sehat_terbaru' => 'required|file|mimes:pdf,doc,docx|max:2048',
         ]);
 
-        $cvPath = $this->cv_terbaru->store('public/files');
-        $skckPath = $this->skck_terbaru->store('public/files');
-        $healthCertPath = $this->ket_sehat_terbaru->store('public/files');
+        $cvPath = $this->cv_terbaru->store('files', 'public');
+        $skckPath = $this->skck_terbaru->store('files', 'public');
+        $healthCertPath = $this->ket_sehat_terbaru->store('files', 'public');
 
         Candidate::create([
+            'no_apply' => $this->generateNoApply(),
             'posisi_dilamar' => $validated['posisi_dilamar'],
             'nama_lengkap' => $validated['nama_lengkap'],
             'nama_panggilan' => $validated['nama_panggilan'],
@@ -73,10 +83,11 @@ class PostApply extends Component
             'cv_terbaru' => $cvPath,
             'skck_terbaru' => $skckPath,
             'ket_sehat_terbaru' => $healthCertPath,
+            'status' => 'applied'
         ]);
 
         session()->flash('message', 'Data berhasil disimpan.');
-        
-        return $this->redirect('/thank-you', navigate: true); 
+
+        return $this->redirect('/success-apply', navigate: true); 
     }
 }

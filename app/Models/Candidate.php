@@ -22,5 +22,11 @@ class Candidate extends Model
         'cv_terbaru',
         'skck_terbaru',
         'ket_sehat_terbaru',
+        'no_apply',
+        'status'
     ];
+
+    // Status 
+    // 'applied', 'screening', 'interview', 'offered', 'rejected', 'hired'
+
 }

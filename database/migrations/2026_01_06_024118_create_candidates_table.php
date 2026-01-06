@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -11,9 +12,13 @@ return new class extends Migration
      */
     public function up(): void
     {
+        DB::statement("CREATE TYPE candidate_status AS ENUM (
+            'applied', 'screening', 'interview', 'offered', 'rejected', 'hired'
+        )");
+        
         Schema::create('candidates', function (Blueprint $table) {
             $table->id();
-            $table->string('no_apply', 10)->unique();
+            $table->string('no_apply', 128)->unique();
             $table->string('nama_lengkap', 128);
             $table->string('nama_panggilan', 50);
             $table->integer('umur');
@@ -30,13 +35,8 @@ return new class extends Migration
             $table->string('skck_terbaru', 128);
             $table->string('ket_sehat_terbaru', 128);
             $table->enum('status', [
-                'applied', 
-                'screening', 
-                'interview', 
-                'offered', 
-                'rejected', 
-                'hired'
-            ]);
+                'applied', 'screening', 'interview', 'offered', 'rejected', 'hired'
+            ])->default('applied');
 
             $table->timestamps();
         });
