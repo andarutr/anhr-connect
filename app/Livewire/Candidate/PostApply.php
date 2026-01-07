@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Layout;
 use App\Livewire\Forms\PostApplyForm;
+use Livewire\Attributes\Title;
 
 class PostApply extends Component
 {
@@ -14,10 +15,10 @@ class PostApply extends Component
     public PostApplyForm $form;
 
     #[Layout('components.layouts.candidate')]
+    #[Title('Apply Lamaran Kamu')]
     public function render()
     {
-        return view('livewire.candidate.post-apply')
-                ->layoutData(['title' => 'Apply Lamaran Kamu']);
+        return view('livewire.candidate.post-apply');
     }
 
     public function store()

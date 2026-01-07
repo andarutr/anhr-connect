@@ -5,6 +5,7 @@ namespace App\Livewire\Candidate;
 use Livewire\Component;
 use App\Models\Candidate;
 use Livewire\Attributes\Layout;
+use Livewire\Attributes\Title;
 
 class TrackApply extends Component
 {
@@ -13,10 +14,10 @@ class TrackApply extends Component
     public $notFound = false;
 
     #[Layout('components.layouts.candidate')]
+    #[Title('Lacak Lamaran Kamu')]
     public function render()
     {
-        return view('livewire.candidate.track-apply')
-                ->layoutData(['title' => 'Lacak Lamaran Kamu']);
+        return view('livewire.candidate.track-apply');
     }
 
     public function search()
