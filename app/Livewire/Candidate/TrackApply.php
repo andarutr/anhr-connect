@@ -15,7 +15,8 @@ class TrackApply extends Component
     #[Layout('components.layouts.candidate')]
     public function render()
     {
-        return view('livewire.candidate.track-apply');
+        return view('livewire.candidate.track-apply')
+                ->layoutData(['title' => 'Lacak Lamaran Kamu']);
     }
 
     public function search()

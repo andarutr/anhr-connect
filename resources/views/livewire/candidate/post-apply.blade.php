@@ -1,84 +1,90 @@
 <div>
     <div class="navbar-header text-center mt-2 mb-4">
+        <img src="/assets/img/logo_andaru.webp" class="img-fluid" width="150">
         <h5>Apply Lamaran Kamu</h5>
+        <h3>PT. Andaru Triadi Ceria Sejahtera</h3>
     </div>
     
-    <p>Semua data otomatis akan tersimpan. Pastikan semua data terisi ya...</p>
+    <div class="alert alert-success alert-dismissible fade show">
+        <i class="fas fa-shield-alt me-2"></i>
+        Data Anda aman dan terlindungi. Pastikan semua informasi terisi dengan benar.
+    </div>
+
     <form wire:submit="store">
         <div class="form-group">
             <label>Posisi</label>
-            <input class="form-control" type="text" wire:model="posisi_dilamar">
-            @error('posisi_dilamar') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="text" wire:model="form.posisi_dilamar">
+            @error('form.posisi_dilamar') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>Nama Lengkap</label>
-            <input class="form-control" type="text" wire:model="nama_lengkap">
-            @error('nama_lengkap') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="text" wire:model="form.nama_lengkap">
+            @error('form.nama_lengkap') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>Nama Panggilan</label>
-            <input class="form-control" type="text" wire:model="nama_panggilan">
-            @error('nama_panggilan') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="text" wire:model="form.nama_panggilan">
+            @error('form.nama_panggilan') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>Umur</label>
-            <input class="form-control" type="number" wire:model="umur">
-            @error('umur') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="number" wire:model="form.umur">
+            @error('form.umur') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>Alamat Rumah</label>
-            <input class="form-control" type="text" wire:model="alamat_rumah">
-            @error('alamat_rumah') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="text" wire:model="form.alamat_rumah">
+            @error('form.alamat_rumah') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>RT</label>
-            <input class="form-control" type="number" wire:model="rt">
-            @error('rt') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="number" wire:model="form.rt">
+            @error('form.rt') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>RW</label>
-            <input class="form-control" type="number" wire:model="rw">
-            @error('rw') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="number" wire:model="form.rw">
+            @error('form.rw') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>Kelurahan</label>
-            <input class="form-control" type="text" wire:model="kelurahan">
-            @error('kelurahan') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="text" wire:model="form.kelurahan">
+            @error('form.kelurahan') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>Kecamatan</label>
-            <input class="form-control" type="text" wire:model="kecamatan">
-            @error('kecamatan') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="text" wire:model="form.kecamatan">
+            @error('form.kecamatan') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>No. KTP</label>
-            <input class="form-control" type="number" wire:model="no_ktp">
-            @error('no_ktp') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="number" wire:model="form.no_ktp">
+            @error('form.no_ktp') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>No. KK</label>
-            <input class="form-control" type="number" wire:model="no_kk">
-            @error('no_kk') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="number" wire:model="form.no_kk">
+            @error('form.no_kk') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>Email</label>
-            <input class="form-control" type="email" wire:model="email">
-            @error('email') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="email" wire:model="form.email">
+            @error('form.email') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>CV Terbaru</label>
-            <input class="form-control" type="file" wire:model="cv_terbaru">
-            @error('cv_terbaru') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="file" wire:model="form.cv_terbaru">
+            @error('form.cv_terbaru') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>SKCK Terbaru</label>
-            <input class="form-control" type="file" wire:model="skck_terbaru">
-            @error('skck_terbaru') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="file" wire:model="form.skck_terbaru">
+            @error('form.skck_terbaru') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
             <label>Surat Sehat</label>
-            <input class="form-control" type="file" wire:model="ket_sehat_terbaru">
-            @error('ket_sehat_terbaru') <div class="text-danger">{{ $message }}</div> @enderror
+            <input class="form-control" type="file" wire:model="form.ket_sehat_terbaru">
+            @error('form.ket_sehat_terbaru') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
 
         <div class="form-group text-center no-gutters mb-4">

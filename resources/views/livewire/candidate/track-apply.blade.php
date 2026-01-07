@@ -2,13 +2,16 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <!-- Card Utama -->
+                <div class="navbar-header text-center mt-2 mb-4">
+                    <img src="/assets/img/logo_andaru.webp" class="img-fluid" width="150">
+                    <h5>Apply Lamaran Kamu</h5>
+                    <h3>PT. Andaru Triadi Ceria Sejahtera</h3>
+                    <h5 class="mb-0 mt-5 fw-bold">
+                        <i class="fas fa-search-location me-2"></i>Lacak Lamaran Pekerjaan
+                    </h5>
+                </div>
+                
                 <div class="card shadow-lg border-0">
-                    <div class="card-header bg-gradient text-white text-center py-4" style="background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);">
-                        <h4 class="mb-0 fw-bold">
-                            <i class="fas fa-search-location me-2"></i>Lacak Lamaran Pekerjaan
-                        </h4>
-                    </div>
                     <div class="card-body">
                         <form wire:submit.prevent="search" class="mb-4">
                             <div class="mb-3">
@@ -27,7 +30,7 @@
                                     </div>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg w-100 shadow-sm">
+                            <button type="submit" class="btn btn-primary w-100 shadow-sm">
                                 <i class="fas fa-search me-2"></i>Lacak Lamaran
                             </button>
                         </form>
@@ -132,7 +135,6 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <footer class="mt-5 text-center">
             <hr>
             <p class="text-muted">
