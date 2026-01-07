@@ -3,6 +3,7 @@
 use App\Livewire\Auth\Login;
 use App\Livewire\Candidate\PostApply;
 use App\Livewire\Candidate\TrackApply;
+use App\Livewire\Hrd\Apply;
 use App\Livewire\Hrd\Dashboard;
 use Illuminate\Support\Facades\Route;
 
@@ -13,3 +14,4 @@ Route::get('/track-apply', TrackApply::class);
 Route::view('/success-apply', 'success-apply');
 
 Route::get('/hrd', Dashboard::class);
+Route::get('/hrd/candidate/apply', Apply::class);

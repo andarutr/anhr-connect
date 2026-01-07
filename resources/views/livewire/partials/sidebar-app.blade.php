@@ -17,7 +17,7 @@
                                 class="badge bg-primary">6</span></span></a>
                     <ul class="list-unstyled sub-menu">
                         <li>
-                            <a href="#">Apply</a>
+                            <a href="/hrd/candidate/apply">Apply</a>
                         </li>
                         <li>
                             <a href="#">Screening</a>
