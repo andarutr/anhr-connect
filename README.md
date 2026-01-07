@@ -15,14 +15,18 @@ HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Meng
 
 ## Role
 1. Admin
-2. Karyawan
+2. HRD
 
 ## Account
 ### Admin
-- Email: admin@domain.test
+- Email: lamens@domain.test
 - Password: test1234
 
-### Karyawan
+### HRD
+- Email: maguire@domain.test
+- Password: test1234
+- Email: shaw@domain.test
+- Password: test1234
 - Email: sesko@domain.test
 - Password: test1234
 
