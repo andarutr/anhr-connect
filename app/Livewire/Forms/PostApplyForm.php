@@ -21,6 +21,9 @@ class PostApplyForm extends Form
     public $umur = '';
     
     #[Validate('required|string|max:500')]
+    public $domisili = '';
+
+    #[Validate('required|string|max:500')]
     public $alamat_rumah = '';
     
     #[Validate('required|string|max:10')]
@@ -43,6 +46,12 @@ class PostApplyForm extends Form
     
     #[Validate('required|email|max:255|unique:candidates,email')]
     public $email = '';
+    
+    #[Validate('required')]
+    public $pendidikan_terakhir = '';
+    
+    #[Validate('required|string|max:255')]
+    public $universitas = '';
     
     #[Validate('required|file|mimes:pdf,doc,docx|max:2048')]
     public $cv_terbaru = '';
@@ -70,12 +79,13 @@ class PostApplyForm extends Form
         $skckPath = $this->skck_terbaru->store('files', 'public');
         $healthCertPath = $this->ket_sehat_terbaru->store('files', 'public');
 
-        Candidate::create([
+        $candidate = Candidate::create([
             'no_apply' => $this->generateNoApply(),
             'posisi_dilamar' => $this->posisi_dilamar,
             'nama_lengkap' => $this->nama_lengkap,
             'nama_panggilan' => $this->nama_panggilan,
             'umur' => (int)$this->umur,
+            'domisili' => $this->domisili,
             'alamat_rumah' => $this->alamat_rumah,
             'rt' => $this->rt,
             'rw' => $this->rw,
@@ -84,10 +94,14 @@ class PostApplyForm extends Form
             'no_ktp' => $this->no_ktp,
             'no_kk' => $this->no_kk,
             'email' => $this->email,
+            'pendidikan_terakhir' => $this->pendidikan_terakhir,
+            'universitas' => $this->universitas,
             'cv_terbaru' => $cvPath,
             'skck_terbaru' => $skckPath,
             'ket_sehat_terbaru' => $healthCertPath,
             'status' => 'applied'
         ]);
+
+        return $candidate->no_apply;
     }
 }

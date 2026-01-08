@@ -24,7 +24,7 @@
 
                         <div class="alert alert-info mt-4">
                             <p class="mb-0">
-                                <strong>No. Lamaran:</strong> <span class="fw-bold">202501060001</span><br>
+                                <strong>No. Lamaran:</strong> <span class="fw-bold">{{ $no_apply }}</span><br>
                                 <small class="text-muted">Simpan nomor ini untuk referensi selanjutnya. Dengan nomor ini anda bisa track lamaran anda sudah sampai mana.</small>
                             </p>
                         </div>

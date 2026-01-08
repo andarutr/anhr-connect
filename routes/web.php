@@ -11,7 +11,9 @@ Route::redirect('/', '/apply');
 Route::get('/login', Login::class)->name('login');
 Route::get('/apply', PostApply::class);
 Route::get('/track-apply', TrackApply::class);
-Route::view('/success-apply', 'success-apply');
+Route::view('/success-apply/{no_apply}', 'success-apply');
 
-Route::get('/hrd', Dashboard::class);
-Route::get('/hrd/candidate/apply', Apply::class);
+Route::middleware('auth')->group(function(){
+    Route::get('/hrd', Dashboard::class);
+    Route::get('/hrd/candidate/apply', Apply::class);
+});

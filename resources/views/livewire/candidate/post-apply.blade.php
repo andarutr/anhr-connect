@@ -12,77 +12,99 @@
 
     <form wire:submit="store">
         <div class="form-group">
-            <label>Posisi</label>
+            <label>Posisi *</label>
             <input class="form-control" type="text" wire:model="form.posisi_dilamar">
             @error('form.posisi_dilamar') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label>Nama Lengkap</label>
+            <label>Nama Lengkap *</label>
             <input class="form-control" type="text" wire:model="form.nama_lengkap">
             @error('form.nama_lengkap') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label>Nama Panggilan</label>
+            <label>Nama Panggilan *</label>
             <input class="form-control" type="text" wire:model="form.nama_panggilan">
             @error('form.nama_panggilan') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label>Umur</label>
+            <label>Umur *</label>
             <input class="form-control" type="number" wire:model="form.umur">
             @error('form.umur') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label>Alamat Rumah</label>
+            <label>Domisili *</label>
+            <input class="form-control" type="text" wire:model="form.domisili">
+            @error('form.domisili') <div class="text-danger">{{ $message }}</div> @enderror
+        </div>
+        <div class="form-group">
+            <label>Alamat Rumah *</label>
             <input class="form-control" type="text" wire:model="form.alamat_rumah">
             @error('form.alamat_rumah') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label>RT</label>
+            <label>RT *</label>
             <input class="form-control" type="number" wire:model="form.rt">
             @error('form.rt') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label>RW</label>
+            <label>RW *</label>
             <input class="form-control" type="number" wire:model="form.rw">
             @error('form.rw') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label>Kelurahan</label>
+            <label>Kelurahan *</label>
             <input class="form-control" type="text" wire:model="form.kelurahan">
             @error('form.kelurahan') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label>Kecamatan</label>
+            <label>Kecamatan *</label>
             <input class="form-control" type="text" wire:model="form.kecamatan">
             @error('form.kecamatan') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label>No. KTP</label>
+            <label>No. KTP *</label>
             <input class="form-control" type="number" wire:model="form.no_ktp">
             @error('form.no_ktp') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label>No. KK</label>
+            <label>No. KK *</label>
             <input class="form-control" type="number" wire:model="form.no_kk">
             @error('form.no_kk') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label>Email</label>
+            <label>Email Aktif*</label>
             <input class="form-control" type="email" wire:model="form.email">
             @error('form.email') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label>CV Terbaru</label>
+            <label>Pendidikan Terakhir *</label>
+            <select class="form-control" wire:model="form.pendidikan_terakhir">
+                <option value="">Pilih</option>
+                <option value="SMA">SMA</option>
+                <option value="SMK">SMK</option>
+                <option value="S1">S1</option>
+                <option value="S2">S2</option>
+                <option value="S3">S3</option>
+            </select>
+            @error('form.pendidikan_terakhir') <div class="text-danger">{{ $message }}</div> @enderror
+        </div>
+        <div class="form-group">
+            <label>Universitas / Sekolah *</label>
+            <input class="form-control" type="text" wire:model="form.universitas">
+            @error('form.universitas') <div class="text-danger">{{ $message }}</div> @enderror
+        </div>
+        <div class="form-group">
+            <label>CV Terbaru *</label>
             <input class="form-control" type="file" wire:model="form.cv_terbaru">
             @error('form.cv_terbaru') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label>SKCK Terbaru</label>
+            <label>SKCK Terbaru *</label>
             <input class="form-control" type="file" wire:model="form.skck_terbaru">
             @error('form.skck_terbaru') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
-            <label>Surat Sehat</label>
+            <label>Surat Sehat *</label>
             <input class="form-control" type="file" wire:model="form.ket_sehat_terbaru">
             @error('form.ket_sehat_terbaru') <div class="text-danger">{{ $message }}</div> @enderror
         </div>

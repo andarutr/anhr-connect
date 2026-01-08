@@ -24,11 +24,11 @@ class PostApply extends Component
     public function store()
     {
         try {
-            $this->form->store();
+           $no_apply = $this->form->store();
 
             session()->flash('message', 'Data berhasil disimpan.');
 
-            return $this->redirect('/success-apply', navigate: true); 
+            return $this->redirect('/success-apply/'.$no_apply, navigate: true); 
         } catch (\Exception $e) {
             session()->flash('error', 'Terjadi kesalahan: ' . $e->getMessage());
         } 
