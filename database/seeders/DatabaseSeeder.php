@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\MasterUser;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -44,6 +45,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'sesko@domain.test',
             'password' => $password,
             'is_admin' => 2
+        ]);
+
+        MasterUser::create([
+            'nik' => '12345',
+            'nama_lengkap' => 'Aguss',
+            'divisi' => 'IT'
         ]);
     }
 }

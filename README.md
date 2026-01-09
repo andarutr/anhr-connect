@@ -42,6 +42,16 @@ HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Meng
 ## Feature
 
 ## Note
-- Status Candidate: applied, screening, interview hrd, interview user, psikotest, technical test, on boarding, hired, rejected.
+- Status Candidate: 
+    - applied 
+    - screening 
+    - interview_hrd
+    - interview_user 
+    - psikotest
+    - technical_test 
+    - mcu
+    - on_boarding 
+    - hired
+    - rejected
 
 ## Screenshot Aplikasi

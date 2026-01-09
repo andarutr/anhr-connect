@@ -23,16 +23,19 @@
                             <a href="/hrd/candidate/screening">Screening</a>
                         </li>
                         <li>
-                            <a href="#">Interview HRD</a>
+                            <a href="/hrd/candidate/hr">Interview HRD</a>
                         </li>
                         <li>
-                            <a href="#">Interview User</a>
+                            <a href="/hrd/candidate/user">Interview User</a>
                         </li>
                         <li>
-                            <a href="#">Psikotest</a>
+                            <a href="/hrd/candidate/psikotest">Psikotest</a>
                         </li>
                         <li>
-                            <a href="#">Technical Test</a>
+                            <a href="/hrd/candidate/technical-test">Technical Test</a>
+                        </li>
+                        <li>
+                            <a href="/hrd/candidate/mcu">MCU</a>
                         </li>
                         <li>
                             <a href="#">On Boarding</a>

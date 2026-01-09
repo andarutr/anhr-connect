@@ -28,6 +28,9 @@ class Candidate extends Model
         'no_apply',
         'status',
         'date_interview_hrd',
-        'url_interview_hrd'
+        'url_interview_hrd',
+        'date_interview_user',
+        'url_interview_user',
+        'master_user_id'
     ];
 }
