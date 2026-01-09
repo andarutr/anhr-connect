@@ -31,6 +31,9 @@ class Candidate extends Model
         'url_interview_hrd',
         'date_interview_user',
         'url_interview_user',
-        'master_user_id'
+        'master_user_id',
+        'date_psikotest',
+        'url_psikotest',
+        'master_checker_id'
     ];
 }
