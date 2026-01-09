@@ -20,13 +20,22 @@
                             <a href="/hrd/candidate/apply">Apply</a>
                         </li>
                         <li>
-                            <a href="#">Screening</a>
+                            <a href="/hrd/candidate/screening">Screening</a>
                         </li>
                         <li>
-                            <a href="#">Interview</a>
+                            <a href="#">Interview HRD</a>
                         </li>
                         <li>
-                            <a href="#">Offered</a>
+                            <a href="#">Interview User</a>
+                        </li>
+                        <li>
+                            <a href="#">Psikotest</a>
+                        </li>
+                        <li>
+                            <a href="#">Technical Test</a>
+                        </li>
+                        <li>
+                            <a href="#">On Boarding</a>
                         </li>
                         <li>
                             <a href="#">Hired</a>

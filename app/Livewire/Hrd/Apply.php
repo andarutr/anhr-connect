@@ -4,6 +4,8 @@ namespace App\Livewire\Hrd;
 
 use Livewire\Component;
 use App\Models\Candidate;
+use Livewire\Attributes\Title;
+use Livewire\Attributes\Layout;
 
 class Apply extends Component
 {
@@ -67,6 +69,8 @@ class Apply extends Component
         $this->selectedCandidate = null;
     }
 
+    #[Layout('components.layouts.app')]
+    #[Title('HRD - Candidate Apply')]
     public function render()
     {
         return view('livewire.hrd.apply');

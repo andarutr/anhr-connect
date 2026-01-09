@@ -12,10 +12,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::statement("CREATE TYPE candidate_status AS ENUM (
-            'applied', 'screening', 'interview', 'offered', 'rejected', 'hired'
-        )");
-        
         Schema::create('candidates', function (Blueprint $table) {
             $table->id();
             $table->string('no_apply', 128)->unique();
@@ -34,9 +30,7 @@ return new class extends Migration
             $table->string('cv_terbaru', 128);
             $table->string('skck_terbaru', 128);
             $table->string('ket_sehat_terbaru', 128);
-            $table->enum('status', [
-                'applied', 'screening', 'interview', 'offered', 'rejected', 'hired'
-            ])->default('applied');
+            $table->string('status', 128)->default('applied');
 
             $table->timestamps();
         });

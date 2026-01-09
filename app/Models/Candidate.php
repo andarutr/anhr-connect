@@ -11,6 +11,7 @@ class Candidate extends Model
         'nama_lengkap',
         'nama_panggilan',
         'umur',
+        'domisili',
         'alamat_rumah',
         'rt',
         'rw',
@@ -19,14 +20,14 @@ class Candidate extends Model
         'no_ktp',
         'no_kk',
         'email',
+        'pendidikan_terakhir',
+        'universitas',
         'cv_terbaru',
         'skck_terbaru',
         'ket_sehat_terbaru',
         'no_apply',
-        'status'
+        'status',
+        'date_interview_hrd',
+        'url_interview_hrd'
     ];
-
-    // Status 
-    // 'applied', 'screening', 'interview', 'offered', 'rejected', 'hired'
-
 }
