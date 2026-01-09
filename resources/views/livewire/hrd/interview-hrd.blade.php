@@ -1,4 +1,3 @@
-{{-- Bagian sebelumnya tetap sama --}}
 <div>
     <div class="widget-list mt-5">
         <div class="row">
