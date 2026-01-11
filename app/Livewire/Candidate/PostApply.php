@@ -6,6 +6,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Layout;
 use App\Livewire\Forms\PostApplyForm;
+use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Title;
 
 class PostApply extends Component
@@ -30,6 +31,8 @@ class PostApply extends Component
 
             return $this->redirect('/success-apply/'.$no_apply, navigate: true); 
         } catch (\Exception $e) {
+            Log::info('Terjadi kesalahan: ' . $e->getMessage());
+            
             session()->flash('error', 'Terjadi kesalahan: ' . $e->getMessage());
         } 
     }

@@ -12,6 +12,12 @@
                         <span class="hide-menu">Dashboard</span>
                     </a>
                 </li>
+                <li class="current-page menu-item">
+                    <a href="/hrd/job-posting">
+                        <i class="list-icon feather feather-file-plus"></i> 
+                        <span class="hide-menu">Job Posting</span>
+                    </a>
+                </li>
                 <li class="menu-item-has-children"><a href="javascript:void(0);"><i
                             class="list-icon feather feather-briefcase"></i> <span class="hide-menu">Candidate <span
                                 class="badge bg-primary">6</span></span></a>
