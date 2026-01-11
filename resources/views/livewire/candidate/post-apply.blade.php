@@ -94,6 +94,11 @@
             @error('form.universitas') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">
+            <label>Ekspektasi Gaji *</label>
+            <input class="form-control" type="number" wire:model="form.ekspektasi_gaji">
+            @error('form.ekspektasi_gaji') <div class="text-danger">{{ $message }}</div> @enderror
+        </div>
+        <div class="form-group">
             <label>CV Terbaru *</label>
             <input class="form-control" type="file" wire:model="form.cv_terbaru">
             @error('form.cv_terbaru') <div class="text-danger">{{ $message }}</div> @enderror

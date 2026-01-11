@@ -53,6 +53,9 @@ class PostApplyForm extends Form
     #[Validate('required|string|max:255')]
     public $universitas = '';
     
+    #[Validate('required|integer')]
+    public $ekspektasi_gaji = '';
+    
     #[Validate('required|file|mimes:pdf,doc,docx|max:2048')]
     public $cv_terbaru = '';
     
@@ -99,7 +102,8 @@ class PostApplyForm extends Form
             'cv_terbaru' => $cvPath,
             'skck_terbaru' => $skckPath,
             'ket_sehat_terbaru' => $healthCertPath,
-            'status' => 'applied'
+            'status' => 'applied',
+            'ekspektasi_gaji' => $this->ekspektasi_gaji
         ]);
 
         return $candidate->no_apply;

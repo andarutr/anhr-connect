@@ -34,6 +34,7 @@ class Candidate extends Model
         'master_user_id',
         'date_psikotest',
         'url_psikotest',
-        'master_checker_id'
+        'master_checker_id',
+        'ekspektasi_gaji'
     ];
 }
