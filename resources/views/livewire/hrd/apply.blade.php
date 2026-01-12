@@ -32,7 +32,7 @@
                                                     <td>{{ $candidate->no_apply }}</td>
                                                     <td>{{ $candidate->nama_lengkap }} ({{ $candidate->nama_panggilan }})</td>
                                                     <td>{{ $candidate->posisi_dilamar }}</td>
-                                                    <td>{{ $candidate->created_at->format('d/m/y') }}</td>
+                                                    <td>{{ Carbon\Carbon::parse($candidate->created_at)->format('d/m/Y') }}</td>
                                                     <td>{{ $candidate->umur }} Tahun</td>
                                                     <td>{{ $candidate->kelurahan }}, {{ $candidate->kecamatan }}</td>
                                                     <td>
@@ -48,12 +48,6 @@
                                                     </td>
                                                 </tr>
                                                 @endforeach
-                                                
-                                                @if($candidates->isEmpty())
-                                                <tr>
-                                                    <td colspan="7" class="text-center">Belum ada data candidate</td>
-                                                </tr>
-                                                @endif
                                             </tbody>
                                         </table>
                                     </div>

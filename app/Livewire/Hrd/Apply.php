@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\Candidate;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Layout;
+use Illuminate\Support\Facades\Redis;
 
 class Apply extends Component
 {
@@ -20,9 +21,21 @@ class Apply extends Component
 
     public function loadCandidates()
     {
-        $this->candidates = Candidate::where('status', 'applied')
-            ->orderBy('created_at', 'desc')
-            ->get();
+        $cacheKey = 'candidates_applied';
+        $cachedData = Redis::get($cacheKey);
+        
+        if ($cachedData) {
+            $this->candidates = json_decode($cachedData, false);
+        } else {
+            $dbCandidates = Candidate::where('status', 'applied')
+                ->orderBy('created_at', 'desc')
+                ->get()
+                ->toArray();
+            
+            $this->candidates = $dbCandidates;
+            
+            Redis::setex($cacheKey, 300, json_encode($dbCandidates));
+        }
     }
 
     public function confirmApprove($candidateId)
