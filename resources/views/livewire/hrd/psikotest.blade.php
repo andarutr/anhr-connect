@@ -4,14 +4,14 @@
             <div class="widget-holder col-md-12">
                 <div class="widget-bg">
                     <div class="widget-heading widget-heading-border">
-                        <h5 class="widget-title">Data Candidate Baru Apply</h5>
+                        <h5 class="widget-title">Data Psikotest</h5>
                     </div>
                     <div class="widget-body">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header d-flex justify-content-between">
-                                        <h6>Candidate</h6>
+                                        <h6>Psikotest</h6>
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table table-hover">
@@ -32,7 +32,7 @@
                                                     <td>{{ $candidate->no_apply }}</td>
                                                     <td>{{ $candidate->nama_lengkap }} ({{ $candidate->nama_panggilan }})</td>
                                                     <td>{{ $candidate->posisi_dilamar }}</td>
-                                                    <td>{{ Carbon\Carbon::parse($candidate->created_at)->format('d/m/Y') }}</td>
+                                                    <td>{{ $candidate->created_at->format('d/m/y') }}</td>
                                                     <td>{{ $candidate->umur }} Tahun</td>
                                                     <td>{{ $candidate->kelurahan }}, {{ $candidate->kecamatan }}</td>
                                                     <td>
@@ -92,7 +92,7 @@
                             <p><strong>Kelurahan:</strong> {{ $selectedCandidate->kelurahan }}</p>
                             <p><strong>Kecamatan:</strong> {{ $selectedCandidate->kecamatan }}</p>
                             <p><strong>Status:</strong> 
-                                <span class="badge badge-{{ $selectedCandidate->status == 'applied' ? 'info' : ($selectedCandidate->status == 'screening' ? 'warning' : 'danger') }}">
+                                <span class="badge badge-{{ $selectedCandidate->status == 'technical_test' ? 'info' : ($selectedCandidate->status == 'technical_test' ? 'warning' : 'danger') }}">
                                     {{ ucfirst($selectedCandidate->status) }}
                                 </span>
                             </p>
@@ -116,29 +116,51 @@
         </div>
     </div>
     @endif
-</div>
 
+    @if($showApproveModal)
+    <div wire:ignore.self class="modal fade show d-block" id="approveModal" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Konfirmasi Approval</h5>
+                    <button type="button" class="close" wire:click="cancelApprove">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Apakah Anda yakin ingin meloloskan candidate ini ke tahap Technical Test?</p>
+                    <p><strong>Silakan pilih tanggal technical test:</strong></p>
+                    <input type="datetime-local" class="form-control" wire:model="technicalDate" min="{{ $minDate }}" style="margin-top: 10px;">
+                    @error('technicalDate') 
+                        <div class="text-danger mt-1">{{ $message }}</div> 
+                    @enderror
+                    <p class="mt-3"><strong>Pilih Checker:</strong></p>
+                    <select class="form-control" wire:model="selectedChecker" id="selectChecker">
+                        <option value="">Pilih</option>
+                        @foreach($users as $user)
+                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('selectedChecker') 
+                        <div class="text-danger mt-1">{{ $message }}</div> 
+                    @enderror
+                    <p class="mt-2"><strong>Silakan isi link soal:</strong></p>
+                    <input type="text" class="form-control" wire:model="technicalUrl">
+                    @error('technicalUrl') 
+                        <div class="text-danger mt-1">{{ $message }}</div> 
+                    @enderror
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" wire:click="cancelApprove">Batal</button>
+                    <button type="button" class="btn btn-success" wire:click="approveCandidate">Ya, Loloskan!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    window.addEventListener('showApproveConfirm', function(event) {
-        Swal.fire({
-            title: 'Konfirmasi',
-            text: 'Apakah Anda yakin ingin meloloskan candidate ini?',
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Ya, Loloskan!',
-            cancelButtonText: 'Batal'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Livewire.find(@this.id).call('approveCandidate', event.detail.candidateId);
-            }
-        });
-    });
-
     window.addEventListener('showRejectConfirm', function(event) {
         Swal.fire({
             title: 'Konfirmasi',

@@ -21,21 +21,19 @@ class Apply extends Component
 
     public function loadCandidates()
     {
-        $cacheKey = 'candidates_applied';
-        $cachedData = Redis::get($cacheKey);
+        // $cacheKey = 'candidates_applied';
+        // $cachedData = Redis::get($cacheKey);
         
-        if ($cachedData) {
-            $this->candidates = json_decode($cachedData, false);
-        } else {
-            $dbCandidates = Candidate::where('status', 'applied')
+        // if ($cachedData) {
+        //     $this->candidates = json_decode($cachedData, false);
+        // } else {
+            $this->candidates = Candidate::where('status', 'applied')
                 ->orderBy('created_at', 'desc')
-                ->get()
-                ->toArray();
+                ->get();
+            // $this->candidates = $dbCandidates;
             
-            $this->candidates = $dbCandidates;
-            
-            Redis::setex($cacheKey, 300, json_encode($dbCandidates));
-        }
+            // Redis::setex($cacheKey, 300, json_encode($dbCandidates));
+        // }
     }
 
     public function confirmApprove($candidateId)
