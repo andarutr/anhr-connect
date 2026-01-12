@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\MasterCompany;
 use App\Models\MasterUser;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -51,6 +52,11 @@ class DatabaseSeeder extends Seeder
             'nik' => '12345',
             'nama_lengkap' => 'Aguss',
             'divisi' => 'IT'
+        ]);
+
+        MasterCompany::create([
+            'name' => 'PT. Andaru Sehat Selalu',
+            'location' => 'Jl. Otista V, Jakarta Timur'
         ]);
     }
 }

@@ -9,8 +9,10 @@ use App\Livewire\Hrd\Dashboard;
 use App\Livewire\Hrd\InterviewHrd;
 use App\Livewire\Hrd\InterviewUser;
 use App\Livewire\Hrd\JobPost;
+use App\Livewire\Hrd\Mcu;
 use App\Livewire\Hrd\Psikotest;
 use App\Livewire\Hrd\Screening;
+use App\Livewire\Hrd\TechnicalTest;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', ListJob::class);
@@ -27,4 +29,6 @@ Route::middleware('auth')->group(function(){
     Route::get('/hrd/candidate/hr', InterviewHrd::class);
     Route::get('/hrd/candidate/user', InterviewUser::class);
     Route::get('/hrd/candidate/psikotest', Psikotest::class);
+    Route::get('/hrd/candidate/technical-test', TechnicalTest::class);
+    Route::get('/hrd/candidate/mcu', Mcu::class);
 });

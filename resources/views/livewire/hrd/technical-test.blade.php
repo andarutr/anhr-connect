@@ -4,14 +4,14 @@
             <div class="widget-holder col-md-12">
                 <div class="widget-bg">
                     <div class="widget-heading widget-heading-border">
-                        <h5 class="widget-title">Data Psikotest</h5>
+                        <h5 class="widget-title">Data Technical Test</h5>
                     </div>
                     <div class="widget-body">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header d-flex justify-content-between">
-                                        <h6>Psikotest</h6>
+                                        <h6>Technical Test</h6>
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table table-hover">
@@ -92,7 +92,7 @@
                             <p><strong>Kelurahan:</strong> {{ $selectedCandidate->kelurahan }}</p>
                             <p><strong>Kecamatan:</strong> {{ $selectedCandidate->kecamatan }}</p>
                             <p><strong>Status:</strong> 
-                                <span class="badge badge-{{ $selectedCandidate->status == 'psikotest' ? 'info' : ($selectedCandidate->status == 'psikotest' ? 'warning' : 'danger') }}">
+                                <span class="badge badge-{{ $selectedCandidate->status == 'technical_test' ? 'info' : ($selectedCandidate->status == 'technical_test' ? 'warning' : 'danger') }}">
                                     {{ ucfirst($selectedCandidate->status) }}
                                 </span>
                             </p>
@@ -126,25 +126,20 @@
                     <button type="button" class="close" wire:click="cancelApprove">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p>Apakah Anda yakin ingin meloloskan candidate ini ke tahap Technical Test?</p>
-                    <p><strong>Silakan pilih tanggal technical test:</strong></p>
-                    <input type="datetime-local" class="form-control" wire:model="technicalDate" min="{{ $minDate }}" style="margin-top: 10px;">
-                    @error('technicalDate') 
+                    <p>Apakah Anda yakin ingin meloloskan candidate ini ke tahap MCU?</p>
+                    <p><strong>Silakan pilih tanggal MCU:</strong></p>
+                    <input type="datetime-local" class="form-control" wire:model="mcuDate" min="{{ $minDate }}" style="margin-top: 10px;">
+                    @error('mcuDate') 
                         <div class="text-danger mt-1">{{ $message }}</div> 
                     @enderror
-                    <p class="mt-3"><strong>Pilih Checker:</strong></p>
-                    <select class="form-control" wire:model="selectedChecker" id="selectChecker">
+                    <p class="mt-3"><strong>Pilih Perusahaan:</strong></p>
+                    <select class="form-control" wire:model="selectedCompany" id="selectCompany">
                         <option value="">Pilih</option>
-                        @foreach($users as $user)
-                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        @foreach($companies as $company)
+                            <option value="{{ $company->id }}">{{ $company->name }}</option>
                         @endforeach
                     </select>
-                    @error('selectedChecker') 
-                        <div class="text-danger mt-1">{{ $message }}</div> 
-                    @enderror
-                    <p class="mt-2"><strong>Silakan isi link soal:</strong></p>
-                    <input type="text" class="form-control" wire:model="technicalUrl">
-                    @error('technicalUrl') 
+                    @error('selectedCompany') 
                         <div class="text-danger mt-1">{{ $message }}</div> 
                     @enderror
                 </div>

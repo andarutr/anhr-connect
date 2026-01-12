@@ -4,14 +4,14 @@
             <div class="widget-holder col-md-12">
                 <div class="widget-bg">
                     <div class="widget-heading widget-heading-border">
-                        <h5 class="widget-title">Data Psikotest</h5>
+                        <h5 class="widget-title">Data MCU</h5>
                     </div>
                     <div class="widget-body">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card">
                                     <div class="card-header d-flex justify-content-between">
-                                        <h6>Psikotest</h6>
+                                        <h6>MCU</h6>
                                     </div>
                                     <div class="table-responsive">
                                         <table class="table table-hover">
@@ -92,7 +92,7 @@
                             <p><strong>Kelurahan:</strong> {{ $selectedCandidate->kelurahan }}</p>
                             <p><strong>Kecamatan:</strong> {{ $selectedCandidate->kecamatan }}</p>
                             <p><strong>Status:</strong> 
-                                <span class="badge badge-{{ $selectedCandidate->status == 'psikotest' ? 'info' : ($selectedCandidate->status == 'psikotest' ? 'warning' : 'danger') }}">
+                                <span class="badge badge-{{ $selectedCandidate->status == 'mcu' ? 'info' : ($selectedCandidate->status == 'mcu' ? 'warning' : 'danger') }}">
                                     {{ ucfirst($selectedCandidate->status) }}
                                 </span>
                             </p>
@@ -118,7 +118,7 @@
     @endif
 
     @if($showApproveModal)
-    <div wire:ignore.self class="modal fade show d-block" id="approveModal" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+    <div class="modal fade show d-block" id="approveModal" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -126,25 +126,10 @@
                     <button type="button" class="close" wire:click="cancelApprove">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <p>Apakah Anda yakin ingin meloloskan candidate ini ke tahap Technical Test?</p>
-                    <p><strong>Silakan pilih tanggal technical test:</strong></p>
-                    <input type="datetime-local" class="form-control" wire:model="technicalDate" min="{{ $minDate }}" style="margin-top: 10px;">
-                    @error('technicalDate') 
-                        <div class="text-danger mt-1">{{ $message }}</div> 
-                    @enderror
-                    <p class="mt-3"><strong>Pilih Checker:</strong></p>
-                    <select class="form-control" wire:model="selectedChecker" id="selectChecker">
-                        <option value="">Pilih</option>
-                        @foreach($users as $user)
-                            <option value="{{ $user->id }}">{{ $user->name }}</option>
-                        @endforeach
-                    </select>
-                    @error('selectedChecker') 
-                        <div class="text-danger mt-1">{{ $message }}</div> 
-                    @enderror
-                    <p class="mt-2"><strong>Silakan isi link soal:</strong></p>
-                    <input type="text" class="form-control" wire:model="technicalUrl">
-                    @error('technicalUrl') 
+                    <p>Apakah Anda yakin ingin meloloskan candidate ini ke tahap On Boarding?</p>
+                    <p><strong>Silakan Upload Hasil MCU (format: pdf, jpg, png, jpeg):</strong></p>
+                    <input type="file" class="form-control" wire:model="mcuFile" accept=".pdf,.jpg,.jpeg,.png">
+                    @error('mcuFile') 
                         <div class="text-danger mt-1">{{ $message }}</div> 
                     @enderror
                 </div>
