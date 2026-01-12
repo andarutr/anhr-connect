@@ -1,5 +1,5 @@
 # anhr-connect
-HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Menggunakan Laravel 12, Livewire 3, dan PostgreSQL.
+HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Candidate bisa langsung apply hingga track apply.
 
 ## Stack
 <div align="left">
@@ -7,6 +7,7 @@ HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Meng
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" height="40" alt="Laravel" />
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/livewire/livewire-original.svg" height="40" alt="Livewire" />
     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height="40" alt="PostgreSQL" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" height="40" alt="Redis" />
 </div>
 
 ## ERD
@@ -36,8 +37,12 @@ HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Meng
 - `php artisan key:generate`
 - `php artisan migrate`
 - `php artisan db:seed`
+- `wsl`
+- `sudo service redis-server start`
 
 ## Plugin / Libraries
+- Sweetalert 2
+- Predis
 
 ## Feature
 

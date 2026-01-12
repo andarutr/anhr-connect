@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Auth\Login;
+use App\Livewire\Candidate\ListJob;
 use App\Livewire\Candidate\PostApply;
 use App\Livewire\Candidate\TrackApply;
 use App\Livewire\Hrd\Apply;
@@ -11,7 +12,7 @@ use App\Livewire\Hrd\JobPost;
 use App\Livewire\Hrd\Screening;
 use Illuminate\Support\Facades\Route;
 
-Route::redirect('/', '/apply');
+Route::get('/', ListJob::class);
 Route::get('/login', Login::class)->name('login');
 Route::get('/apply', PostApply::class);
 Route::get('/track-apply', TrackApply::class);
