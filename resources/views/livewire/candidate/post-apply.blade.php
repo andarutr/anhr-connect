@@ -13,7 +13,12 @@
     <form wire:submit="store">
         <div class="form-group">
             <label>Posisi *</label>
-            <input class="form-control" type="text" wire:model="form.posisi_dilamar">
+            <select class="form-control" wire:model="form.posisi_dilamar">
+                <option value="">Pilih</option>
+                @foreach($posisi as $p)
+                <option value="{{ $p->pekerjaan }}">{{ $p->pekerjaan }}</option>
+                @endforeach
+            </select>
             @error('form.posisi_dilamar') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">

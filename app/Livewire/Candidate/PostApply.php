@@ -2,12 +2,13 @@
 
 namespace App\Livewire\Candidate;
 
+use App\Models\JobPost;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Livewire\Attributes\Layout;
-use App\Livewire\Forms\PostApplyForm;
-use Illuminate\Support\Facades\Log;
 use Livewire\Attributes\Title;
+use Livewire\Attributes\Layout;
+use Illuminate\Support\Facades\Log;
+use App\Livewire\Forms\PostApplyForm;
 
 class PostApply extends Component
 {
@@ -19,7 +20,11 @@ class PostApply extends Component
     #[Title('Apply Lamaran Kamu')]
     public function render()
     {
-        return view('livewire.candidate.post-apply');
+        $data['posisi'] = JobPost::select('pekerjaan')
+                                ->whereDate('close_post', '>=', now())
+                                ->distinct()->get();
+
+        return view('livewire.candidate.post-apply', $data);
     }
 
     public function store()

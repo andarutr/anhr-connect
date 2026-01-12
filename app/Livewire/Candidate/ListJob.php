@@ -14,14 +14,14 @@ class ListJob extends Component
     
     public function mount()
     {
-        $this->jobs = JobPost::all(); 
+        $this->jobs = JobPost::whereDate('close_post', '>=', now())->get();
     }
 
     public function closeModal()
     {
         $this->selectedJob = null;
     }
-    
+
     public function showDetail($jobId)
     {
         $this->selectedJob = JobPost::find($jobId);
