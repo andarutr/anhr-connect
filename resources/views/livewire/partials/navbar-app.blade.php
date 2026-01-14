@@ -45,7 +45,7 @@
         </ul>
         <ul class="nav navbar-nav">
             <li class="dropdown"><a href="javascript:void(0);" class="dropdown-toggle dropdown-toggle-user ripple"
-                    data-toggle="dropdown"><span class="avatar thumb-xs2"><img src="/assets/demo/users/user1.jpg"
+                    data-toggle="dropdown"><span class="avatar thumb-xs2"><img src="/assets/demo/course-3-thumb.jpg"
                             class="rounded-circle" alt=""> <i
                             class="feather feather-chevron-down list-icon"></i></span></a>
                 <div class="dropdown-menu dropdown-left dropdown-card dropdown-card-profile animated flipInY">

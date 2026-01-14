@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\Admin\Dashboard as AdminDashboard;
+use App\Livewire\Admin\ManageUser;
 use App\Livewire\Auth\Login;
 use App\Livewire\Candidate\ListJob;
 use App\Livewire\Candidate\PostApply;
@@ -25,16 +27,23 @@ Route::get('/track-apply', TrackApply::class);
 Route::view('/success-apply/{no_apply}', 'success-apply');
 
 Route::middleware('auth')->group(function(){
-    Route::get('/hrd', Dashboard::class);
-    Route::get('/hrd/job-posting', JobPost::class);
-    Route::get('/hrd/candidate/apply', Apply::class);
-    Route::get('/hrd/candidate/screening', Screening::class);
-    Route::get('/hrd/candidate/hr', InterviewHrd::class);
-    Route::get('/hrd/candidate/user', InterviewUser::class);
-    Route::get('/hrd/candidate/psikotest', Psikotest::class);
-    Route::get('/hrd/candidate/technical-test', TechnicalTest::class);
-    Route::get('/hrd/candidate/mcu', Mcu::class);
-    Route::get('/hrd/candidate/on-boarding', OnBoarding::class);
-    Route::get('/hrd/candidate/hired', Hired::class);
-    Route::get('/hrd/candidate/rejected', Rejected::class);
+    Route::prefix('/hrd')->group(function(){
+        Route::get('/', Dashboard::class);
+        Route::get('/job-posting', JobPost::class);
+        Route::get('/candidate/apply', Apply::class);
+        Route::get('/candidate/screening', Screening::class);
+        Route::get('/candidate/hr', InterviewHrd::class);
+        Route::get('/candidate/user', InterviewUser::class);
+        Route::get('/candidate/psikotest', Psikotest::class);
+        Route::get('/candidate/technical-test', TechnicalTest::class);
+        Route::get('/candidate/mcu', Mcu::class);
+        Route::get('/candidate/on-boarding', OnBoarding::class);
+        Route::get('/candidate/hired', Hired::class);
+        Route::get('/candidate/rejected', Rejected::class);
+    });
+
+    Route::prefix('/admin')->group(function(){
+        Route::get('/', AdminDashboard::class);
+        Route::get('/manage-users', ManageUser::class);
+    });
 });

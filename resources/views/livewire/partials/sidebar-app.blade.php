@@ -5,6 +5,33 @@
         </div>
         <nav class="sidebar-nav">
             <ul class="nav in side-menu">
+                @if(Auth::user()->is_admin == 1)
+                <li class="current-page menu-item">
+                    <a href="/admin">
+                        <i class="list-icon feather feather-command"></i> 
+                        <span class="hide-menu">Dashboard</span>
+                    </a>
+                </li>
+                <li class="current-page menu-item">
+                    <a href="/admin/manage-users">
+                        <i class="list-icon feather feather-settings"></i> 
+                        <span class="hide-menu">Manage Users</span>
+                    </a>
+                </li>
+                <li class="current-page menu-item">
+                    <a href="/admin/manage-company-mcu">
+                        <i class="list-icon feather feather-save"></i> 
+                        <span class="hide-menu">Manage MCU</span>
+                    </a>
+                </li>
+                <li class="current-page menu-item">
+                    <a href="/admin/manage-interview-user">
+                        <i class="list-icon feather feather-users"></i> 
+                        <span class="hide-menu">Manage User Int</span>
+                    </a>
+                </li>
+                @endif
+
                 @if(Auth::user()->is_admin == 2)
                 <li class="current-page menu-item">
                     <a href="/hrd">
