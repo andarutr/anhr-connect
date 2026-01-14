@@ -1,0 +1,48 @@
+<?php
+
+namespace App\Livewire\Hrd;
+
+use Livewire\Component;
+use App\Models\Candidate;
+use Livewire\Attributes\Title;
+use Livewire\Attributes\Layout;
+
+class Rejected extends Component
+{
+    public $candidates = [];
+    public $selectedCandidate = null;
+    public $showDetailModal = false;
+
+    public function mount()
+    {
+        $this->loadCandidates();
+    }
+
+    public function loadCandidates()
+    {
+        $this->candidates = Candidate::where('status', 'rejected')
+            ->orderBy('created_at', 'desc')
+            ->get();
+    }
+
+    public function viewDetail($candidateId)
+    {
+        $this->selectedCandidate = Candidate::find($candidateId);
+        if ($this->selectedCandidate) {
+            $this->showDetailModal = true;
+        }
+    }
+
+    public function closeDetailModal()
+    {
+        $this->showDetailModal = false;
+        $this->selectedCandidate = null;
+    }
+
+    #[Layout('components.layouts.app')]
+    #[Title('HRD - Rejected')]
+    public function render()
+    {
+        return view('livewire.hrd.rejected');
+    }
+}

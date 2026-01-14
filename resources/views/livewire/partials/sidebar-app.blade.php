@@ -44,13 +44,13 @@
                             <a href="/hrd/candidate/mcu">MCU</a>
                         </li>
                         <li>
-                            <a href="#">On Boarding</a>
+                            <a href="/hrd/candidate/on-boarding">On Boarding</a>
                         </li>
                         <li>
-                            <a href="#">Hired</a>
+                            <a href="/hrd/candidate/hired">Hired</a>
                         </li>
                         <li>
-                            <a href="#">Rejected</a>
+                            <a href="/hrd/candidate/rejected">Rejected</a>
                         </li>
                     </ul>
                 </li>
