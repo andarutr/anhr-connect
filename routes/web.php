@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Admin\Dashboard as AdminDashboard;
+use App\Livewire\Admin\ManageCompanyMcu;
 use App\Livewire\Admin\ManageUser;
 use App\Livewire\Auth\Login;
 use App\Livewire\Candidate\ListJob;
@@ -45,5 +46,6 @@ Route::middleware('auth')->group(function(){
     Route::prefix('/admin')->group(function(){
         Route::get('/', AdminDashboard::class);
         Route::get('/manage-users', ManageUser::class);
+        Route::get('/manage-company-mcu', ManageCompanyMcu::class);
     });
 });
