@@ -3,6 +3,7 @@
 use App\Livewire\Admin\Dashboard as AdminDashboard;
 use App\Livewire\Admin\ManageCompanyMcu;
 use App\Livewire\Admin\ManageUser;
+use App\Livewire\Admin\ManageUserInterview;
 use App\Livewire\Auth\Login;
 use App\Livewire\Candidate\ListJob;
 use App\Livewire\Candidate\PostApply;
@@ -47,5 +48,6 @@ Route::middleware('auth')->group(function(){
         Route::get('/', AdminDashboard::class);
         Route::get('/manage-users', ManageUser::class);
         Route::get('/manage-company-mcu', ManageCompanyMcu::class);
+        Route::get('/manage-interview-user', ManageUserInterview::class);
     });
 });
