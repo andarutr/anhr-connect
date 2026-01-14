@@ -4,7 +4,7 @@
             <div class="widget-holder col-md-12">
                 <div class="widget-bg">
                     <div class="widget-heading widget-heading-border">
-                        <h5 class="widget-title">Data MCU</h5>
+                        <h5 class="widget-title" style="display: flex; align-items: center; gap: 0.5rem;">Data MCU @livewire('partials.badge-jumlah-proses', ['status' => 'mcu'], key('mcu'))</h5>
                     </div>
                     <div class="widget-body">
                         <div class="row">

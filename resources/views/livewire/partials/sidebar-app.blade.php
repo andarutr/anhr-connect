@@ -46,38 +46,37 @@
                     </a>
                 </li>
                 <li class="menu-item-has-children"><a href="javascript:void(0);"><i
-                            class="list-icon feather feather-briefcase"></i> <span class="hide-menu">Candidate <span
-                                class="badge bg-primary">6</span></span></a>
+                            class="list-icon feather feather-briefcase"></i> <span class="hide-menu">Candidate</span></a>
                     <ul class="list-unstyled sub-menu">
                         <li>
-                            <a href="/hrd/candidate/apply">Apply</a>
+                            <a href="/hrd/candidate/apply" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'applied'], key('applied')) Apply</a>
                         </li>
                         <li>
-                            <a href="/hrd/candidate/screening">Screening</a>
+                            <a href="/hrd/candidate/screening" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'screening'], key('screening')) Screening</a>
                         </li>
                         <li>
-                            <a href="/hrd/candidate/hr">Interview HRD</a>
+                            <a href="/hrd/candidate/hr" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'interview_hrd'], key('interview_hrd')) Interview HRD</a>
                         </li>
                         <li>
-                            <a href="/hrd/candidate/user">Interview User</a>
+                            <a href="/hrd/candidate/user" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'interview_user'], key('interview_user')) Interview User</a>
                         </li>
                         <li>
-                            <a href="/hrd/candidate/psikotest">Psikotest</a>
+                            <a href="/hrd/candidate/psikotest" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'psikotest'], key('psikotest')) Psikotest</a>
                         </li>
                         <li>
-                            <a href="/hrd/candidate/technical-test">Technical Test</a>
+                            <a href="/hrd/candidate/technical-test" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'technical_test'], key('technical_test')) Technical Test</a>
                         </li>
                         <li>
-                            <a href="/hrd/candidate/mcu">MCU</a>
+                            <a href="/hrd/candidate/mcu" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'mcu'], key('mcu')) MCU</a>
                         </li>
                         <li>
-                            <a href="/hrd/candidate/on-boarding">On Boarding</a>
+                            <a href="/hrd/candidate/on-boarding" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'on_boarding'], key('on_boarding')) On Boarding</a>
                         </li>
                         <li>
-                            <a href="/hrd/candidate/hired">Hired</a>
+                            <a href="/hrd/candidate/hired" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'hired'], key('hired')) Hired</a>
                         </li>
                         <li>
-                            <a href="/hrd/candidate/rejected">Rejected</a>
+                            <a href="/hrd/candidate/rejected" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'rejected'], key('rejected')) Rejected</a>
                         </li>
                     </ul>
                 </li>
