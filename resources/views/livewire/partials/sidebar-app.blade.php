@@ -42,7 +42,7 @@
                 <li class="current-page menu-item">
                     <a href="/hrd/job-listing">
                         <i class="list-icon feather feather-list"></i> 
-                        <span class="hide-menu">Job Listing</span>
+                        <span class="hide-menu">Job Listing</span>@livewire('partials.badge-jumlah-post')
                     </a>
                 </li>
                 <li class="current-page menu-item">
