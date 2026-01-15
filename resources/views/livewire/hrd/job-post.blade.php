@@ -82,23 +82,36 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="start_salary">Start Salary</label>
-                                                        <input type="number"
-                                                            class="form-control @error('start_salary') is-invalid @enderror"
-                                                            id="start_salary" wire:model="form.start_salary"
+                                                        <input type="text"
+                                                            class="form-control @error('form.start_salary') is-invalid @enderror"
+                                                            id="start_salary"
+                                                            x-data="{ value: '' }"
+                                                            x-model="value"
+                                                            x-on:input.debounce.150ms="
+                                                                let raw = value.replace(/\D/g, '');
+                                                                $wire.form.start_salary = raw;
+                                                                value = raw ? raw.replace(/\B(?=(\d{3})+(?!\d))/g, '.') : '';
+                                                            "
                                                             placeholder="Enter minimum salary">
-                                                        @error('form.start_salary') <div class="invalid-feedback">
-                                                            {{ $message }}</div> @enderror
+                                                        @error('form.start_salary') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                                     </div>
                                                 </div>
+
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="end_salary">End Salary</label>
-                                                        <input type="number"
-                                                            class="form-control @error('end_salary') is-invalid @enderror"
-                                                            id="end_salary" wire:model="form.end_salary"
+                                                        <input type="text"
+                                                            class="form-control @error('form.end_salary') is-invalid @enderror"
+                                                            id="end_salary"
+                                                            x-data="{ value: '' }"
+                                                            x-model="value"
+                                                            x-on:input.debounce.150ms="
+                                                                let raw = value.replace(/\D/g, '');
+                                                                $wire.form.end_salary = raw;
+                                                                value = raw ? raw.replace(/\B(?=(\d{3})+(?!\d))/g, '.') : '';
+                                                            "
                                                             placeholder="Enter maximum salary">
-                                                        @error('form.end_salary') <div class="invalid-feedback">
-                                                            {{ $message }}</div> @enderror
+                                                        @error('form.end_salary') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                                     </div>
                                                 </div>
                                             </div>
@@ -143,7 +156,7 @@
                                             </div>
 
                                             <div class="form-group">
-                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                                <button type="submit" class="btn btn-primary form-control"><i class="feather feather-save"></i> &nbsp;Posting</button>
                                             </div>
                                         </form>
                                     </div>

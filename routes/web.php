@@ -13,6 +13,7 @@ use App\Livewire\Hrd\Dashboard;
 use App\Livewire\Hrd\Hired;
 use App\Livewire\Hrd\InterviewHrd;
 use App\Livewire\Hrd\InterviewUser;
+use App\Livewire\Hrd\JobList;
 use App\Livewire\Hrd\JobPost;
 use App\Livewire\Hrd\Mcu;
 use App\Livewire\Hrd\OnBoarding;
@@ -31,6 +32,7 @@ Route::view('/success-apply/{no_apply}', 'success-apply');
 Route::middleware('auth')->group(function(){
     Route::prefix('/hrd')->group(function(){
         Route::get('/', Dashboard::class);
+        Route::get('/job-listing', JobList::class);
         Route::get('/job-posting', JobPost::class);
         Route::get('/candidate/apply', Apply::class);
         Route::get('/candidate/screening', Screening::class);

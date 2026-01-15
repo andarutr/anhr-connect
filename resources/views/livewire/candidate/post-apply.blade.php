@@ -100,7 +100,15 @@
         </div>
         <div class="form-group">
             <label>Ekspektasi Gaji *</label>
-            <input class="form-control" type="number" wire:model="form.ekspektasi_gaji">
+            <input class="form-control" type="text" 
+                    id="ekspektasi_gaji"
+                    x-data="{ value: '' }"
+                    x-model="value"
+                    x-on:input.debounce.150ms="
+                        let raw = value.replace(/\D/g, '');
+                        $wire.form.ekspektasi_gaji = raw;
+                        value = raw ? raw.replace(/\B(?=(\d{3})+(?!\d))/g, '.') : '';
+                    ">
             @error('form.ekspektasi_gaji') <div class="text-danger">{{ $message }}</div> @enderror
         </div>
         <div class="form-group">

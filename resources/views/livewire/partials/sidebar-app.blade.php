@@ -40,6 +40,12 @@
                     </a>
                 </li>
                 <li class="current-page menu-item">
+                    <a href="/hrd/job-listing">
+                        <i class="list-icon feather feather-list"></i> 
+                        <span class="hide-menu">Job Listing</span>
+                    </a>
+                </li>
+                <li class="current-page menu-item">
                     <a href="/hrd/job-posting">
                         <i class="list-icon feather feather-file-plus"></i> 
                         <span class="hide-menu">Job Posting</span>
