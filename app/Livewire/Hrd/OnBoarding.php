@@ -3,9 +3,13 @@
 namespace App\Livewire\Hrd;
 
 use Livewire\Component;
+use App\Models\Employee;
 use App\Models\Candidate;
 use Livewire\Attributes\Title;
 use Livewire\Attributes\Layout;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class OnBoarding extends Component
 {
@@ -37,11 +41,32 @@ class OnBoarding extends Component
 
     public function approveCandidate($candidateId)
     {
-        $candidate = Candidate::find($candidateId);
-        if ($candidate) {
-            $candidate->update(['status' => 'hired']);
-            $this->loadCandidates();
-            $this->dispatch('showSuccessAlert', message: 'Candidate berhasil dihire');
+        try {
+            DB::transaction(function () use ($candidateId) {
+                $candidate = Candidate::find($candidateId);
+                if ($candidate) {
+                    $candidate->update([
+                        'status' => 'hired',
+                        'hire_date' => now(),
+                        'hire_by' => Auth::user()->name
+                    ]);
+                    
+                    Employee::create([
+                        'nama_lengkap' => $candidate->nama_lengkap,
+                        'email' => $candidate->email,
+                        'position' => $candidate->posisi_dilamar,
+                        'hire_date' => now(),
+                        'hire_by' => Auth::user()->name,
+                        'status' => 'active'
+                    ]);
+
+                    $this->loadCandidates();
+                    $this->dispatch('showSuccessAlert', message: 'Candidate berhasil dihire');
+                }
+            });
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+            $this->dispatch('showErrorAlert', message: 'Gagal menghire candidate: ' . $e->getMessage());
         }
     }
 

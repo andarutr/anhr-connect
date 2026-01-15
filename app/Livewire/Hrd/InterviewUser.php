@@ -30,7 +30,8 @@ class InterviewUser extends Component
 
     public function loadCandidates()
     {
-        $this->candidates = Candidate::where('status', 'interview_user')
+        $this->candidates = Candidate::with('users')
+            ->where('status', 'interview_user')
             ->orderBy('created_at', 'desc')
             ->get();
     }

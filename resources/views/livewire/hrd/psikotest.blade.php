@@ -20,9 +20,9 @@
                                                     <th>No. Apply</th>
                                                     <th>Nama</th>
                                                     <th>Posisi</th>
-                                                    <th>Tanggal</th>
-                                                    <th>Umur</th>
-                                                    <th>Domisili</th>
+                                                    <th>Jadwal</th>
+                                                    <th>Checker</th>
+                                                    <th>Link</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -32,9 +32,11 @@
                                                     <td>{{ $candidate->no_apply }}</td>
                                                     <td>{{ $candidate->nama_lengkap }} ({{ $candidate->nama_panggilan }})</td>
                                                     <td>{{ $candidate->posisi_dilamar }}</td>
-                                                    <td>{{ $candidate->created_at->format('d/m/y') }}</td>
-                                                    <td>{{ $candidate->umur }} Tahun</td>
-                                                    <td>{{ $candidate->kelurahan }}, {{ $candidate->kecamatan }}</td>
+                                                    <td>{{ Carbon\Carbon::parse($candidate->date_psikotest)->format('d/m/y H:i') }}</td>
+                                                    <td>{{ $candidate->users->name }}</td>
+                                                    <td>
+                                                        <a href="{{ $candidate->url_psikotest }}" target="_blank">{{ Str::limit($candidate->url_psikotest, 31, '...') }}</a>
+                                                    </td>
                                                     <td>
                                                         <button class="btn btn-sm btn-outline-primary" wire:click="viewDetail({{ $candidate->id }})">
                                                             <i class="feather feather-eye"></i>

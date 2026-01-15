@@ -28,7 +28,8 @@ class Mcu extends Component
 
     public function loadCandidates()
     {
-        $this->candidates = Candidate::where('status', 'mcu')
+        $this->candidates = Candidate::with('company')
+            ->where('status', 'mcu')
             ->orderBy('created_at', 'desc')
             ->get();
     }

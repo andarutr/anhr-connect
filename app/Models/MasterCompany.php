@@ -10,4 +10,9 @@ class MasterCompany extends Model
         'name',
         'location'
     ];
+
+    public function candidates()
+    {
+        return $this->hasMany(Candidate::class, 'company_id');
+    }
 }

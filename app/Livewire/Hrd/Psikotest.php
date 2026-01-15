@@ -30,7 +30,8 @@ class Psikotest extends Component
 
     public function loadCandidates()
     {
-        $this->candidates = Candidate::where('status', 'psikotest')
+        $this->candidates = Candidate::with('users')
+            ->where('status', 'psikotest')
             ->orderBy('created_at', 'desc')
             ->get();
     }

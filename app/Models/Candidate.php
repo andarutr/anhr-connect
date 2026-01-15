@@ -34,7 +34,25 @@ class Candidate extends Model
         'master_user_id',
         'date_psikotest',
         'url_psikotest',
+        'date_technical',
+        'url_technical',
+        'checker_technical_id',
         'master_checker_id',
-        'ekspektasi_gaji'
+        'ekspektasi_gaji',
+        'date_mcu',
+        'company_id',
+        'hasil_mcu',
+        'hire_date',
+        'hire_by'
     ];
+
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'master_user_id');
+    }
+
+    public function company()
+    {
+        return $this->belongsTo(MasterCompany::class, 'company_id');
+    }
 }

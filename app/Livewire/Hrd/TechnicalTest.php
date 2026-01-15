@@ -29,7 +29,8 @@ class TechnicalTest extends Component
 
     public function loadCandidates()
     {
-        $this->candidates = Candidate::where('status', 'technical_test')
+        $this->candidates = Candidate::with('users')
+            ->where('status', 'technical_test')
             ->orderBy('created_at', 'desc')
             ->get();
     }

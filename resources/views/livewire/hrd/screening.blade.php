@@ -20,9 +20,11 @@
                                                     <th>No. Apply</th>
                                                     <th>Nama</th>
                                                     <th>Posisi</th>
-                                                    <th>Tanggal</th>
-                                                    <th>Umur</th>
                                                     <th>Domisili</th>
+                                                    <th>Tanggal Apply</th>
+                                                    <th>CV</th>
+                                                    <th>SKCK</th>
+                                                    <th>Ket.Sehat</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -32,9 +34,23 @@
                                                     <td>{{ $candidate->no_apply }}</td>
                                                     <td>{{ $candidate->nama_lengkap }} ({{ $candidate->nama_panggilan }})</td>
                                                     <td>{{ $candidate->posisi_dilamar }}</td>
+                                                    <td>{{ $candidate->kecamatan }}</td>
                                                     <td>{{ $candidate->created_at->format('d/m/y') }}</td>
-                                                    <td>{{ $candidate->umur }} Tahun</td>
-                                                    <td>{{ $candidate->kelurahan }}, {{ $candidate->kecamatan }}</td>
+                                                    <td>
+                                                        <center>
+                                                            <i class="feather feather-check-square"></i>
+                                                        </center>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <i class="feather feather-check-square"></i>
+                                                        </center>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <i class="feather feather-check-square"></i>
+                                                        </center>
+                                                    </td>
                                                     <td>
                                                         <button class="btn btn-sm btn-outline-primary" wire:click="viewDetail({{ $candidate->id }})">
                                                             <i class="feather feather-eye"></i>

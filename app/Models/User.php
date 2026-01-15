@@ -46,4 +46,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function candidates()
+    {
+        return $this->hasMany(Candidate::class, 'master_user_id');
+    }
 }
