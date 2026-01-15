@@ -11,8 +11,10 @@ HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Cand
 </div>
 
 ## ERD
+- On Progress
 
 ## Flowchart
+- On Progress
 
 ## Role
 1. Admin
@@ -45,6 +47,7 @@ HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Cand
 - Predis
 
 ## Feature
+- On Progress
 
 ## Note
 - Status Candidate: 
@@ -60,3 +63,4 @@ HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Cand
     - rejected
 
 ## Screenshot Aplikasi
+- On Progress

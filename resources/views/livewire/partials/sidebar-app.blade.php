@@ -86,6 +86,12 @@
                         </li>
                     </ul>
                 </li>
+                <li class="current-page menu-item">
+                    <a href="/hrd/employee">
+                        <i class="list-icon feather feather-users"></i> 
+                        <span class="hide-menu">Employee</span>@livewire('partials.badge-jumlah-employee')
+                    </a>
+                </li>
                 @endif
             </ul>
         </nav>

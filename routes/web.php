@@ -1,27 +1,28 @@
 <?php
 
-use App\Livewire\Admin\Dashboard as AdminDashboard;
-use App\Livewire\Admin\ManageCompanyMcu;
-use App\Livewire\Admin\ManageUser;
-use App\Livewire\Admin\ManageUserInterview;
-use App\Livewire\Auth\Login;
-use App\Livewire\Candidate\ListJob;
-use App\Livewire\Candidate\PostApply;
-use App\Livewire\Candidate\TrackApply;
+use App\Livewire\Hrd\Mcu;
 use App\Livewire\Hrd\Apply;
-use App\Livewire\Hrd\Dashboard;
 use App\Livewire\Hrd\Hired;
-use App\Livewire\Hrd\InterviewHrd;
-use App\Livewire\Hrd\InterviewUser;
+use App\Livewire\Auth\Login;
 use App\Livewire\Hrd\JobList;
 use App\Livewire\Hrd\JobPost;
-use App\Livewire\Hrd\Mcu;
-use App\Livewire\Hrd\OnBoarding;
-use App\Livewire\Hrd\Psikotest;
+use App\Livewire\Hrd\Employee;
 use App\Livewire\Hrd\Rejected;
+use App\Livewire\Hrd\Dashboard;
+use App\Livewire\Hrd\Psikotest;
 use App\Livewire\Hrd\Screening;
+use App\Livewire\Hrd\OnBoarding;
+use App\Livewire\Admin\ManageUser;
+use App\Livewire\Hrd\InterviewHrd;
+use App\Livewire\Candidate\ListJob;
+use App\Livewire\Hrd\InterviewUser;
 use App\Livewire\Hrd\TechnicalTest;
+use App\Livewire\Candidate\PostApply;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\Candidate\TrackApply;
+use App\Livewire\Admin\ManageCompanyMcu;
+use App\Livewire\Admin\ManageUserInterview;
+use App\Livewire\Admin\Dashboard as AdminDashboard;
 
 Route::get('/', ListJob::class);
 Route::get('/login', Login::class)->name('login');
@@ -34,16 +35,19 @@ Route::middleware('auth')->group(function(){
         Route::get('/', Dashboard::class);
         Route::get('/job-listing', JobList::class);
         Route::get('/job-posting', JobPost::class);
-        Route::get('/candidate/apply', Apply::class);
-        Route::get('/candidate/screening', Screening::class);
-        Route::get('/candidate/hr', InterviewHrd::class);
-        Route::get('/candidate/user', InterviewUser::class);
-        Route::get('/candidate/psikotest', Psikotest::class);
-        Route::get('/candidate/technical-test', TechnicalTest::class);
-        Route::get('/candidate/mcu', Mcu::class);
-        Route::get('/candidate/on-boarding', OnBoarding::class);
-        Route::get('/candidate/hired', Hired::class);
-        Route::get('/candidate/rejected', Rejected::class);
+        Route::get('/employee', Employee::class);
+        Route::prefix('/candidate')->group(function(){
+            Route::get('/apply', Apply::class);
+            Route::get('/screening', Screening::class);
+            Route::get('/hr', InterviewHrd::class);
+            Route::get('/user', InterviewUser::class);
+            Route::get('/psikotest', Psikotest::class);
+            Route::get('/technical-test', TechnicalTest::class);
+            Route::get('/mcu', Mcu::class);
+            Route::get('/on-boarding', OnBoarding::class);
+            Route::get('/hired', Hired::class);
+            Route::get('/rejected', Rejected::class);
+        });
     });
 
     Route::prefix('/admin')->group(function(){
