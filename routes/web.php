@@ -25,6 +25,7 @@ use App\Livewire\Admin\ManageUserInterview;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
 use App\Livewire\Employee\Resign;
 use App\Livewire\Hrd\ApprovalResign;
+use App\Livewire\Hrd\NoticePeriodResign;
 
 Route::get('/', ListJob::class);
 Route::get('/login', Login::class)->name('login');
@@ -54,6 +55,7 @@ Route::middleware('auth')->group(function(){
 
         Route::prefix('/resign')->group(function(){
             Route::get('/approval', ApprovalResign::class);
+            Route::get('/notice', NoticePeriodResign::class);
         });
     });
 

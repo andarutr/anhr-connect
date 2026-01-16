@@ -71,7 +71,6 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Event listener untuk konfirmasi approve
         Livewire.on('show-approve-confirmation', function(data) {
             Swal.fire({
                 title: 'Anda yakin?',
@@ -89,7 +88,6 @@
             });
         });
 
-        // Event listener untuk konfirmasi reject
         Livewire.on('show-reject-confirmation', function(data) {
             Swal.fire({
                 title: 'Anda yakin?',
