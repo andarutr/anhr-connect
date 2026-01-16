@@ -22,6 +22,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>Nama Lengkap</th>
+                                                    <th>NIK</th>
                                                     <th>Email</th>
                                                     <th>Posisi</th>
                                                     <th>Dept</th>
@@ -35,6 +36,7 @@
                                                 @foreach($employees as $employee)
                                                 <tr class="animate__animated animate__fadeIn">
                                                     <td>{{ $employee->nama_lengkap }}</td>
+                                                    <td>{{ $employee->nik }}</td>
                                                     <td>{{ $employee->email }}</td>
                                                     <td>{{ $employee->position }}</td>
                                                     <td>{{ $employee->department }}</td>
@@ -74,6 +76,14 @@
                         <h5 class="modal-title">Edit Department</h5>
                     </div>
                     <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">NIK</label>
+                            <input type="text" 
+                                class="form-control @error('nik') is-invalid @enderror" 
+                                wire:model="nik"
+                                placeholder="Masukkan NIK">
+                            @error('nik') <div class="invalid-feedback">{{ $message }}</div> @enderror
+                        </div>
                         <div class="mb-3">
                             <label class="form-label">Department</label>
                             <select class="form-control @error('department') is-invalid @enderror" wire:model="department">

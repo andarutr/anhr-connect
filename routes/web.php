@@ -23,10 +23,12 @@ use App\Livewire\Candidate\TrackApply;
 use App\Livewire\Admin\ManageCompanyMcu;
 use App\Livewire\Admin\ManageUserInterview;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
+use App\Livewire\Employee\Resign;
 
 Route::get('/', ListJob::class);
 Route::get('/login', Login::class)->name('login');
 Route::get('/apply', PostApply::class);
+Route::get('/resign', Resign::class);
 Route::get('/track-apply', TrackApply::class);
 Route::view('/success-apply/{no_apply}', 'success-apply');
 

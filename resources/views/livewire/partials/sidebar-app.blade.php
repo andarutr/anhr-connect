@@ -6,6 +6,7 @@
         <nav class="sidebar-nav">
             <ul class="nav in side-menu">
                 @if(Auth::user()->is_admin == 1)
+                <h6 class="text-white">Admin</h6>
                 <li class="current-page menu-item">
                     <a href="/admin">
                         <i class="list-icon feather feather-command"></i> 
@@ -33,10 +34,17 @@
                 @endif
 
                 @if(Auth::user()->is_admin == 2)
+                <h6 class="text-white">Recruitment</h6>
                 <li class="current-page menu-item">
                     <a href="/hrd">
                         <i class="list-icon feather feather-command"></i> 
                         <span class="hide-menu">Dashboard</span>
+                    </a>
+                </li>
+                <li class="current-page menu-item">
+                    <a href="/hrd/employee">
+                        <i class="list-icon feather feather-users"></i> 
+                        <span class="hide-menu">Employee</span>@livewire('partials.badge-jumlah-employee')
                     </a>
                 </li>
                 <li class="current-page menu-item">
@@ -86,11 +94,19 @@
                         </li>
                     </ul>
                 </li>
-                <li class="current-page menu-item">
-                    <a href="/hrd/employee">
-                        <i class="list-icon feather feather-users"></i> 
-                        <span class="hide-menu">Employee</span>@livewire('partials.badge-jumlah-employee')
-                    </a>
+                <li class="menu-item-has-children"><a href="javascript:void(0);"><i
+                            class="list-icon feather feather-log-out"></i> <span class="hide-menu">Resignation</span></a>
+                    <ul class="list-unstyled sub-menu">
+                        <li>
+                            <a href="/hrd/resign/pengajuan" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'pengajuan'], key('pengajuan')) Pengajuan</a>
+                        </li>
+                        <li>
+                            <a href="/hrd/resign/notice" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'notice'], key('notice')) Notice Period</a>
+                        </li>
+                        <li>
+                            <a href="/hrd/resign/paklaring" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'paklaring'], key('paklaring')) Paklaring</a>
+                        </li>
+                    </ul>
                 </li>
                 @endif
             </ul>

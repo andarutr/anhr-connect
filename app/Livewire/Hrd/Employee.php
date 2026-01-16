@@ -13,6 +13,7 @@ class Employee extends Component
     public $showEditModal = false;
     public $editingEmployeeId = null;
     public $department = '';
+    public $nik = ''; 
 
     public function mount()
     {
@@ -26,6 +27,7 @@ class Employee extends Component
         if ($employee) {
             $this->editingEmployeeId = $employee->id;
             $this->department = $employee->department;
+            $this->nik = $employee->nik; 
             $this->showEditModal = true;
         }
     }
@@ -33,14 +35,16 @@ class Employee extends Component
     public function updateDepartment()
     {
         $this->validate([
-            'department' => 'required|in:IT,HRD'
+            'department' => 'required',
+            'nik' => 'required|string|unique:employees,nik,' . $this->editingEmployeeId 
         ]);
 
         $employee = ModelsEmployee::find($this->editingEmployeeId);
         
         if ($employee) {
             $employee->update([
-                'department' => $this->department
+                'department' => $this->department,
+                'nik' => $this->nik 
             ]);
         }
 
@@ -54,6 +58,7 @@ class Employee extends Component
         $this->showEditModal = false;
         $this->editingEmployeeId = null;
         $this->department = '';
+        $this->nik = '';
     }
 
     #[Layout('components.layouts.app')]
