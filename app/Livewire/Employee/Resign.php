@@ -56,7 +56,7 @@ class Resign extends Component
         $filePath = $this->resignFile->store('resigns', 'public');
 
         ModelsResign::create([
-            'user_id' => $this->employee->id,
+            'employee_id' => $this->employee->id,
             'file_pengajuan' => $filePath,
             'status' => 'waiting',
         ]);

@@ -24,6 +24,7 @@ use App\Livewire\Admin\ManageCompanyMcu;
 use App\Livewire\Admin\ManageUserInterview;
 use App\Livewire\Admin\Dashboard as AdminDashboard;
 use App\Livewire\Employee\Resign;
+use App\Livewire\Hrd\ApprovalResign;
 
 Route::get('/', ListJob::class);
 Route::get('/login', Login::class)->name('login');
@@ -49,6 +50,10 @@ Route::middleware('auth')->group(function(){
             Route::get('/on-boarding', OnBoarding::class);
             Route::get('/hired', Hired::class);
             Route::get('/rejected', Rejected::class);
+        });
+
+        Route::prefix('/resign')->group(function(){
+            Route::get('/approval', ApprovalResign::class);
         });
     });
 

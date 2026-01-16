@@ -98,13 +98,13 @@
                             class="list-icon feather feather-log-out"></i> <span class="hide-menu">Resignation</span></a>
                     <ul class="list-unstyled sub-menu">
                         <li>
-                            <a href="/hrd/resign/pengajuan" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'pengajuan'], key('pengajuan')) Pengajuan</a>
+                            <a href="/hrd/resign/approval" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-resign', ['status' => 'waiting'], key('waiting')) Approval</a>
                         </li>
                         <li>
-                            <a href="/hrd/resign/notice" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'notice'], key('notice')) Notice Period</a>
+                            <a href="/hrd/resign/notice" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-resign', ['status' => 'notice_period'], key('notice_period')) Notice Period</a>
                         </li>
                         <li>
-                            <a href="/hrd/resign/paklaring" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-proses', ['status' => 'paklaring'], key('paklaring')) Paklaring</a>
+                            <a href="/hrd/resign/paklaring" style="display: flex; align-items: center; gap: 0.5rem;">@livewire('partials.badge-jumlah-resign', ['status' => 'done'], key('done')) Paklaring</a>
                         </li>
                     </ul>
                 </li>

@@ -16,4 +16,9 @@ class Employee extends Model
         'hire_by',
         'status'
     ];
+
+    public function resigns()
+    {
+        return $this->hasMany(Resign::class, 'employee_id');
+    }
 }
