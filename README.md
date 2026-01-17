@@ -11,7 +11,7 @@ HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Cand
 </div>
 
 ## ERD
-- On Progress
+<img src="document/ERD AnhrConnect.jpg" width="450">
 
 ## Flowchart
 ### Employee IN
