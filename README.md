@@ -1,5 +1,5 @@
 # anhr-connect
-HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Candidate bisa langsung apply hingga track apply.
+HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Candidate bisa langsung apply hingga track apply. HRD dapat dengan mudah manage proses recruitment dari proses screening hingga on boarding.
 
 ## Stack
 <div align="left">
@@ -14,11 +14,33 @@ HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Cand
 - On Progress
 
 ## Flowchart
-- On Progress
+### Employee IN
+<img src="document/Flowchart Anhrconnect IN.jpg" width="450">
+Penjelasan:
+<ul>
+    <li>HRD membuka lowongan dan mempostingnya.</li>
+    <li>Kandidat melihat daftar lowongan pekerjaan yang tersedia.</li>
+    <li>Kandidat mengajukan lamaran (mengisi formulir, upload CV, dll).</li>
+    <li>Kandidat dapat memantau status lamarannya.</li>
+    <li>HRD mengecek kelengkapan dan kesesuaian CV kandidat dengan persyaratan lowongan.</li>
+    <li>HRD melakukan evaluasi lebih mendalam terhadap CV (pengalaman, pendidikan, skill, dll).</li>
+    <li>HRD wajib mengirimkan link gform/gmeet/zoom ketika proses interview hrd/user/psikotest/technical test.</li>
+    <li>Sebelum on boarding, HRD harus melakukan upload hasil MCU.</li>
+</ul>
+
+### Employee OUT
+<img src="document/Flowchart Anhrconnect OUT.jpg" width="450">
+Penjelasan:
+<ul>
+    <li>Employee melakukan upload pengajuan resign dalam bentuk pdf.</li>
+    <li>HRD melakukan approval dan otomatis employee akan masuk tahap one month notice (notice period).</li>
+    <li>Paklaring dapat di download bila sudah diatas masa notice period.</li>
+</ul>
 
 ## Role
 1. Admin
 2. HRD
+3. Candidate (Tanpa Login)
 
 ## Account
 ### Admin
@@ -47,7 +69,22 @@ HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Cand
 - Predis
 
 ## Feature
-- On Progress
+- Manage User
+- Manage Medical Company
+- Job Posting
+- Apply
+- Track Apply
+- Screening CV
+- Interview HRD
+- Interview User
+- Psikotest
+- Technical Test
+- MCU
+- On Boarding
+- Upload Permohonan Resign
+- Approval Resign
+- Notice Period
+- Download Paklaring
 
 ## Note
 - Status Candidate: 
@@ -63,4 +100,16 @@ HR Connect dibuat yang bertujuan untuk pendataan karyawan masuk dan keluar. Cand
     - rejected
 
 ## Screenshot Aplikasi
-- On Progress
+<img src="document/screenshot/anhrconnect_1.png" width="450">
+<img src="document/screenshot/anhrconnect_2.png" width="450">
+<img src="document/screenshot/anhrconnect_3.png" width="450">
+<img src="document/screenshot/anhrconnect_4.png" width="450">
+<img src="document/screenshot/anhrconnect_5.png" width="450">
+<img src="document/screenshot/anhrconnect_6.png" width="450">
+<img src="document/screenshot/anhrconnect_7.png" width="450">
+<img src="document/screenshot/anhrconnect_8.png" width="450">
+<img src="document/screenshot/anhrconnect_9.png" width="450">
+<img src="document/screenshot/anhrconnect_10.png" width="450">
+<img src="document/screenshot/anhrconnect_11.png" width="450">
+<img src="document/screenshot/anhrconnect_12.png" width="450">
+<img src="document/screenshot/anhrconnect_13.png" width="450">
